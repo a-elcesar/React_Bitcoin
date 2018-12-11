@@ -1,26 +1,37 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Route,Link} from 'react-router-dom'
+import Page1 from './components/Page1'
+import Page2 from './components/Page2'
+import Page3 from './components/Page3'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <center class='container-fluid' style={{fontFamily:'VT323'}}>
+        <h1>Welcome to BTCInfo</h1>
+        <ul class='nav nav-tabs'>
+          <li class='nav-item active'>
+            <Link to='/page1'>
+              <i class="nav-link active" >Info harga Bitcoin</i>
+            </Link>
+          </li>    
+          <li class="nav-item">
+            <Link to="/page2">
+              <i class="nav-link active" >Rupiah ke Bitcoin</i>
+            </Link>        
+          </li>
+          <li class="nav-item">
+            <Link to="/page3">
+              <i class="nav-link active" >Bitcoin ke Rupiah</i>
+            </Link>        
+          </li>
+        </ul>
+        <div>
+          <Route path='/page1'component={Page1}/>
+          <Route path='/page2'component={Page2}/>
+          <Route path='/page3'component={Page3}/>
+        </div>
+      </center>
     );
   }
 }
